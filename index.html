@@ -1,0 +1,694 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <style>
+    * {
+      padding: 0%;
+      margin: 0%;
+      box-sizing: border-box;
+    }
+    body {
+      background: linear-gradient(rgb(159, 255, 159), white);
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      background: linear-gradient(rgb(215, 255, 215), white);
+      animation: list 2s ease-in-out;
+    }
+
+    .logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .logo img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+    }
+    .logo2 {
+      display: flex;
+      width: 70%;
+      justify-content: space-around;
+    }
+    .list {
+      width: 50%;
+      animation: list 2s ease-in-out;
+    }
+    .list ul {
+      display: flex;
+      justify-content: center;
+    }
+    .list ul li {
+      list-style: none;
+      padding: 2%;
+    }
+    .list ul li a {
+      text-decoration: none;
+      font-size: 25px;
+      font-weight: 700;
+    }
+    .name {
+      text-align: center;
+      font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      font-size: medium;
+      font-style: italic;
+      animation: name 4s ease-in-out;
+      animation-timeline: view();
+      animation-range: entry 20% cover 40%;
+    }
+    .name h1,
+    .name p {
+      font-size: 20px;
+    }
+    @keyframes name {
+      from {
+        transform: translatez(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translatez(0);
+        opacity: 1;
+      }
+    }
+    @keyframes list {
+      from {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    .slider {
+      width: 100%;
+      height: 60vh;
+      position: relative;
+      overflow: hidden;
+      margin-top:0.1%;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 60vh;
+      display: none;
+      z-index: 0;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .slide.active {
+      display: block;
+      z-index: 1;
+    }
+
+    .head-text {
+      position: absolute;
+      font-size: 25px;
+      font-weight: 700;
+      top: 35%;
+      left: 15%;
+      color: white;
+      animation: head 3s forwards;
+    }
+    @keyframes head {
+      from {
+        transform: translateX(-100%);
+        opacity: 0.4;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .headbtn {
+      width: 30%;
+      height: 40px;
+      border-radius: 25px;
+      cursor: pointer;
+      background-color: blue;
+      text-align: center;
+      font-size: 25px;
+      color: white;
+    }
+    #about-us {
+      color: white;
+      text-align: center;
+      text-transform: capitalize;
+    }
+    .card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      animation: card 4s ease-in-out;
+      transition: 1s ease-in-out;
+      transform: scale(0.9);
+      opacity: 0.6;
+      animation-timeline: view();
+      animation-range: entry 20% cover 40%;
+    }
+    .card:hover {
+      opacity: 1;
+      transform: scale(1);
+    }
+    @keyframes name {
+      from {
+        transform: translatez(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translatez(0);
+        opacity: 1;
+      }
+    }
+    @keyframes card {
+      from {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    .image {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .image img {
+      width: 330px;
+      height: 280px;
+      padding: 3%;
+      transition: 1s ease-in-out;
+      transform: scale(0.8);
+      opacity: 0.8;
+    }
+    .image img:hover {
+      opacity: 1;
+      transform: scale(0.9);
+    }
+
+    .content-card {
+      font-size: 65px;
+    }
+    .cardbtn {
+      text-align: center;
+      align-items: center;
+      width: 60%;
+      height: 35px;
+      outline: none;
+      font: 800;
+      font-size: 20px;
+      cursor: pointer;
+      border-radius: 25px;
+      margin-left: 10%;
+    }
+    .cardbtn-1 {
+      text-align: center;
+      align-items: center;
+      width: 30%;
+      height: 35px;
+      outline: none;
+      font: 800;
+      font-size: 20px;
+      cursor: pointer;
+      border-radius: 25px;
+      margin-left: 34%;
+    }
+    .card-1 {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .image-1 {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      width: 100%;
+      padding: 20px;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+    }
+
+    .image-1 .he {
+      min-width: 300px;
+      flex-shrink: 0;
+    }
+
+    .image-1 img {
+      width: 300px;
+      height: 300px;
+    }
+    #new-course {
+      text-align: center;
+      text-decoration: underline;
+    }
+    .new-course {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin: 3%;
+      animation: course 3s forwards;
+      animation-timeline: view();
+      animation-range: entry 20% cover 40%;
+    }
+    @keyframes course {
+      from {
+        transform: translateX(-100%);
+      }
+      to {
+        transform: translateX(0%);
+      }
+    }
+    .new-course img {
+      width: 400px;
+      height: 400px;
+    }
+    
+.login-box{
+   margin-top: 8%;
+   margin: 5% 0% 1% 27%;
+   width:500px;
+   padding:35px;
+   background:#fff;
+   border-radius:12px;
+   box-shadow:0 10px 25px rgba(0,0,0,0.15);
+    animation: form 7s ease-out;
+      animation-timeline: view();
+      animation-range: entry 20% cover 40%;
+}
+.login-box:hover{
+transform: scale(4s);
+transition: 2s ;
+opacity: 1;
+}
+
+@keyframes form{
+  from{
+opacity: 0;
+    transform: translateX(100%);
+  }to{
+  opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+.login-box h2{
+    text-align:center;
+    margin-bottom:25px;
+    color:#333;
+}
+
+/* Input */
+.input-box{
+    margin-bottom:18px;
+}
+
+.input-box input{
+    width:100%;
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:6px;
+    outline:none;
+    transition:0.3s;
+}
+
+.input-box input:focus{
+    border-color:#66a6ff;
+    box-shadow:0 0 5px rgba(102,166,255,0.4);
+}
+
+.login-btn{
+    width:100%;
+    padding:10px;
+    border:none;
+    border-radius:6px;
+    background:#66a6ff;
+    color:#fff;
+    font-size:15px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.login-btn:hover{
+    background:#4e8ef7;
+    transform:translateY(-2px);
+}
+
+/* Extra */
+.extra{
+    margin-top:15px;
+    text-align:center;
+    font-size:14px;
+}
+
+.extra a{
+    text-decoration:none;
+    color:#66a6ff;
+}
+
+.extra a:hover{
+    text-decoration:underline;
+}
+  </style>
+  <body>
+    <nav>
+      <div class="logo">
+        <img src="image/WhatsApp Image 2026-02-25 at 7.46.59 PM.jpeg" alt="" />
+        <div class="name">
+          <h1>Ravi Shankar Dubey</h1>
+          <h3>A STUDY POINT</h3>
+          <p>Sakin Near Samthar Moth, Jhansi Uttar Pradesh</p>
+        </div>
+      </div>
+
+      <div class="list">
+        <div class="name">
+          <h1>RAVI CLASSES</h1>
+          <p>A solution for all problem</p>
+        </div>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#new-course">New Course</a></li>
+          <li><a href="#login">Log-in</a></li>
+          <li><a href="#about-us">Solution</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="slider">
+      <div class="slide active">
+        <div class="head-text">
+          <p>Classes Join & Checkout</p>
+          <h1>Our Classes and Feature</h1>
+          <button class="headbtn">Join Now</button>
+        </div>
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqHa6Hd-YD9QyMxIS8fYtVx6WnUDx4SQb3aw&s"
+          alt=""
+        />
+      </div>
+      <div class="slide">
+        <div class="head-text">
+          <p>New Coruse Availvaile</p>
+          <h1>Full stack devlovper (Website)</h1>
+          <button class="headbtn">Join Now</button>
+        </div>
+        <img
+          src="https://thumbs.dreamstime.com/b/natural-scenery-765672.jpg"
+          alt=""
+        />
+      </div>
+      <div class="slide">
+        <div class="head-text">
+          <p>Class 1st To 10th</p>
+          <h1>Real and Clean Work</h1>
+          <button class="headbtn">Join Now</button>
+        </div>
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkfS2AztLp2OIzwRRI7_O9dLKJx_fwaRwSkQ&s"
+          alt=""
+        />
+      </div>
+    </div>
+    <h1 id="about-us">About Us</h1>
+    <div class="card">
+      <div class="content-card">
+        <p>Our Classes & Park</p>
+        <button class="cardbtn">Check Now</button>
+      </div>
+      <div class="image">
+        <div class="he">
+          <h2>Main View Our Park</h2>
+          <img
+            src="https://www.kzooparks.org/files/sharedassets/parks/v/2/park-images/verburg-park.jpg?dimension=pageimagefullwidth&w=1140"
+            alt=""
+          />
+        </div>
+        <div class="he">
+          <h2>Back View Our Park</h2>
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJrQilbA9cMzpt-yHBgrwe-3rM4Yi3Y_W_2Q&s"
+            alt=""
+          />
+        </div>
+        <div class="he">
+          <h2>Mid park View</h2>
+          <img
+            src="https://www.kzooparks.org/files/sharedassets/parks/v/2/park-images/verburg-park.jpg?dimension=pageimagefullwidth&w=1140"
+            alt=""
+          />
+        </div>
+        <div class="he">
+          <h2>Gate View Our Park</h2>
+
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJrQilbA9cMzpt-yHBgrwe-3rM4Yi3Y_W_2Q&s"
+            alt=""
+          />
+        </div>
+        <div class="he">
+          <h2>Main View Our Park</h2>
+          <img
+            src="https://www.kzooparks.org/files/sharedassets/parks/v/2/park-images/verburg-park.jpg?dimension=pageimagefullwidth&w=1140"
+            alt=""
+          />
+        </div>
+        <div class="he">
+          <h2>Back View Our Park</h2>
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJrQilbA9cMzpt-yHBgrwe-3rM4Yi3Y_W_2Q&s"
+            alt=""
+          />
+        </div>
+        <div class="he">
+          <h2>Mid park View</h2>
+          <img
+            src="https://www.kzooparks.org/files/sharedassets/parks/v/2/park-images/verburg-park.jpg?dimension=pageimagefullwidth&w=1140"
+            alt=""
+          />
+        </div>
+        <div class="he">
+          <h2>Gate View Our Park</h2>
+
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJrQilbA9cMzpt-yHBgrwe-3rM4Yi3Y_W_2Q&s"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="card-1">
+      <div class="content-card">
+        <p>Our Teachers & Studies Materials</p>
+        <button class="cardbtn-1">Check Now</button>
+      </div>
+      <div class="image-1">
+        <div class="he">
+          <h2>Main View Our Park</h2>
+          <img
+            src="https://www.kzooparks.org/files/sharedassets/parks/v/2/park-images/verburg-park.jpg?dimension=pageimagefullwidth&w=1140"
+            alt=""
+          />
+        </div>
+        <div class="he">
+          <h2>Back View Our Park</h2>
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJrQilbA9cMzpt-yHBgrwe-3rM4Yi3Y_W_2Q&s"
+            alt=""
+          />
+        </div>
+        <div class="he">
+          <h2>Mid park View</h2>
+          <img
+            src="https://www.kzooparks.org/files/sharedassets/parks/v/2/park-images/verburg-park.jpg?dimension=pageimagefullwidth&w=1140"
+            alt=""
+          />
+        </div>
+        <div class="he">
+          <h2>Gate View Our Park</h2>
+
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJrQilbA9cMzpt-yHBgrwe-3rM4Yi3Y_W_2Q&s"
+            alt=""
+          />
+        </div>
+        <div class="he">
+          <h2>Main View Our Park</h2>
+          <img
+            src="https://www.kzooparks.org/files/sharedassets/parks/v/2/park-images/verburg-park.jpg?dimension=pageimagefullwidth&w=1140"
+            alt=""
+          />
+        </div>
+        <div class="he">
+          <h2>Back View Our Park</h2>
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJrQilbA9cMzpt-yHBgrwe-3rM4Yi3Y_W_2Q&s"
+            alt=""
+          />
+        </div>
+        <div class="he">
+          <h2>Mid park View</h2>
+          <img
+            src="https://www.kzooparks.org/files/sharedassets/parks/v/2/park-images/verburg-park.jpg?dimension=pageimagefullwidth&w=1140"
+            alt=""
+          />
+        </div>
+        <div class="he">
+          <h2>Gate View Our Park</h2>
+
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJrQilbA9cMzpt-yHBgrwe-3rM4Yi3Y_W_2Q&s"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+    <h1 id="new-course">New Course Availvaile</h1>
+    <div class="new-course">
+      <div class="course">
+        <img
+          src="https://static.pw.live/5eb393ee95fab7468a79d189/GLOBAL_CMS/3652d06a-3c1b-43dc-bb37-ec60fcd30bd1.webp"
+          alt=""
+        />
+        <div class="course-content">
+          <ul>
+            <li>100% Clean & Clear Direction</li>
+            <li>Recorded Classess & live Session</li>
+            <li>Sunday Doubt Session</li>
+            <li>Expirience Teacher</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="course">
+        <img
+          src="https://static.pw.live/5eb393ee95fab7468a79d189/GLOBAL_CMS/3652d06a-3c1b-43dc-bb37-ec60fcd30bd1.webp"
+          alt=""
+        />
+        <div class="course-content">
+          <ul>
+            <li>100% Clean & Clear Direction</li>
+            <li>Recorded Classess & live Session</li>
+            <li>Sunday Doubt Session</li>
+            <li>Expirience Teacher</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="course">
+        <img
+          src="https://static.pw.live/5eb393ee95fab7468a79d189/GLOBAL_CMS/3652d06a-3c1b-43dc-bb37-ec60fcd30bd1.webp"
+          alt=""
+        />
+        <div class="course-content">
+          <ul>
+            <li>100% Clean & Clear Direction</li>
+            <li>Recorded Classess & live Session</li>
+            <li>Sunday Doubt Session</li>
+            <li>Expirience Teacher</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="course">
+        <img
+          src="https://static.pw.live/5eb393ee95fab7468a79d189/GLOBAL_CMS/3652d06a-3c1b-43dc-bb37-ec60fcd30bd1.webp"
+          alt=""
+        />
+        <div class="course-content">
+          <ul>
+            <li>100% Clean & Clear Direction</li>
+            <li>Recorded Classess & live Session</li>
+            <li>Sunday Doubt Session</li>
+            <li>Expirience Teacher</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="course">
+        <img
+          src="https://static.pw.live/5eb393ee95fab7468a79d189/GLOBAL_CMS/3652d06a-3c1b-43dc-bb37-ec60fcd30bd1.webp"
+          alt=""
+        />
+        <div class="course-content">
+          <ul>
+            <li>100% Clean & Clear Direction</li>
+            <li>Recorded Classess & live Session</li>
+            <li>Sunday Doubt Session</li>
+            <li>Expirience Teacher</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="course">
+        <img
+          src="https://static.pw.live/5eb393ee95fab7468a79d189/GLOBAL_CMS/3652d06a-3c1b-43dc-bb37-ec60fcd30bd1.webp"
+          alt=""
+        />
+        <div class="course-content">
+          <ul>
+            <li>100% Clean & Clear Direction</li>
+            <li>Recorded Classess & live Session</li>
+            <li>Sunday Doubt Session</li>
+            <li>Expirience Teacher</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+<div class="login-box" id="login">
+    <h2>Login</h2>
+    <form>
+        <div class="input-box">
+            <input type="email" placeholder="Email" required>
+        </div>
+
+        <div class="input-box">
+            <input type="password" placeholder="Password" required>
+        </div>
+
+        <button type="submit" class="login-btn">Login</button>
+
+        <div class="extra">
+            <p>Forgot Password? <a href="#">Click Here</a></p>
+        </div>
+    </form>
+</div>
+  </body>
+  <script>
+    let slides = document.querySelectorAll(".slide");
+    let index = 0;
+
+    function changeSlide() {
+      slides[index].classList.remove("active");
+      index = (index + 1) % slides.length;
+      slides[index].classList.add("active");
+    }
+
+    setInterval(changeSlide, 3000);
+  </script>
+</html>
